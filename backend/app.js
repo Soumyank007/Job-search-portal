@@ -11,14 +11,15 @@ const errorHandler = require("./middleware/error");
 
 // Import routes
 const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 
 // Connect to MongoDB
-mongoose.connect(process.env.DATABASE, { 
+mongoose.connect(process.env.DATABASE, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => console.log('DB connected'))
-.catch((err) => console.log(err));
+  .catch((err) => console.log(err));
 
 // Configure middleware
 app.use(cors());
@@ -32,6 +33,7 @@ app.use(bodyParser.json());
 
 // ROUTES MIDDLEWARE
 app.use('/api', authRoutes);
+app.use('/api', userRoutes);
 
 // error middleware
 app.use(errorHandler);
