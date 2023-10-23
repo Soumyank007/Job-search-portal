@@ -25,7 +25,11 @@ mongoose.connect(process.env.DATABASE, {
   .catch((err) => console.log(err));
 
 // Configure middleware
-app.use(cors());
+const corsOptions = {
+  origin: 'https://job-search-portal-ashy.vercel.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+};
+app.use(cors(corsOptions));
 
 // Use Morgan for request logging
 app.use(morgan('dev'));
