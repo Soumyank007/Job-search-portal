@@ -12,7 +12,10 @@ const errorHandler = require("./middleware/error");
 // Import routes
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+const jobTypeRoute = require('./routes/jobsTypeRoutes');
+const jobRoute = require('./routes/jobsRoutes');
 
+app.use(cookieParser());
 
 // Connect to MongoDB
 mongoose.connect(process.env.DATABASE, {
@@ -34,11 +37,11 @@ app.use(bodyParser.json());
 // ROUTES MIDDLEWARE
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
+app.use('/api', jobTypeRoute);
+app.use('/api', jobRoute);
 
 // error middleware
 app.use(errorHandler);
-
-app.use(cookieParser());
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
