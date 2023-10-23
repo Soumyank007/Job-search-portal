@@ -24,6 +24,9 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// error middleware
+app.use(errorHandler);
+
 app.use(cookieParser());
 
 const PORT = process.env.PORT || 8000;
