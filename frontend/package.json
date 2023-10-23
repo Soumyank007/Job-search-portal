@@ -49,5 +49,6 @@
   },
   "devDependencies": {
     "@redux-devtools/extension": "^3.2.5"
-  }
+  },
+  "proxy":"https://job-search-portal-backend.vercel.app"
 }
