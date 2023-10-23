@@ -6,9 +6,12 @@ const cookieParser = require('cookie-parser');
 require('dotenv').config();
 const cors = require('cors');
 const app = express();
+const errorHandler = require("./middleware/error");
+
 
 // Import routes
 const authRoutes = require('./routes/authRoutes');
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.DATABASE, { 
