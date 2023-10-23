@@ -7,6 +7,9 @@ require('dotenv').config();
 const cors = require('cors');
 const app = express();
 
+// Import routes
+const authRoutes = require('./routes/authRoutes');
+
 // Connect to MongoDB
 mongoose.connect(process.env.DATABASE, { 
   useNewUrlParser: true,
@@ -23,6 +26,9 @@ app.use(morgan('dev'));
 // Use Body-Parser for parsing request bodies
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// ROUTES MIDDLEWARE
+app.use('/api', authRoutes);
 
 // error middleware
 app.use(errorHandler);
