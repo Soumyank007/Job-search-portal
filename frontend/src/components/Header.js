@@ -1,6 +1,7 @@
 import { Box, styled } from '@mui/material'
 import React from 'react'
 import headerImage from '../images/career-bg.png';
+import SearchInputEl from './SearchInputEl';
 
 const Header = () => {
 
@@ -19,7 +20,7 @@ const Header = () => {
     return (
         <>
             <StyleHeader >
-
+                <SearchInputEl />
             </StyleHeader>
         </>
     )
