@@ -15,7 +15,7 @@ const DashJobs = () => {
 
     useEffect(() => {
         dispatch(jobLoadAction())
-    }, []);
+    }, [dispatch]);
 
 
     const { jobs, loading } = useSelector(state => state.loadJobs);
