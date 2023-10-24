@@ -27,7 +27,7 @@ mongoose.connect(process.env.DATABASE, {
 // Configure middleware
 const corsOptions = {
   origin: 'https://job-search-portal-ashy.vercel.app',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true 
 };
 app.use(cors(corsOptions));
 
